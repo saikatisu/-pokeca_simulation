@@ -23,3 +23,46 @@ def initialize_deck(deck_list):
             deck.extend([card_name] * int(card_count))
     return deck
 
+# deck_utils.py
+
+import random
+
+def generate_random_hand(deck, target_card, excluded_card=None, num_cards=7):
+    hand = []
+    
+    # 特定カードが含まれている場合にはそのまま手札に追加
+    if target_card not in hand:
+        hand.append(target_card)
+        deck.remove(target_card)
+    
+    # 残りのカードを引く
+    while len(hand) < num_cards:
+        draw_card = random.sample(deck, 1)[0]
+        
+        # 排除カードが指定されている場合、それを含むカードは引かない
+        if excluded_card and draw_card == excluded_card:
+            continue
+        
+        hand.append(draw_card)
+        deck.remove(draw_card)
+    
+    if len(deck) != 53:
+        raise ValueError("デッキ枚数が53枚ではありません")
+    
+    return hand, deck
+
+def draw_cards_except(deck, num_cards, excluded_cards):
+    drawn_cards = []
+    
+    while len(drawn_cards) < num_cards:
+        draw_card = random.choice(deck)
+        
+        # 排除カードが指定されている場合、それを含むカードは引かない
+        if draw_card not in excluded_cards:
+            drawn_cards.append(draw_card)
+            deck.remove(draw_card)
+    
+    return drawn_cards, deck
+
+
+
