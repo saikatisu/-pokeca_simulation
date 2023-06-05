@@ -26,7 +26,7 @@ def simulate_probability():
 
     for _ in range(trials):
         deck = initialize_deck(deckList)  # デッキを初期化
-        hand, deck = generate_random_hand(deck, initial_hand[0],target_card)
+        hand, deck = generate_random_hand(deck, initial_hand,target_card)
         
         if len(deck) != 53:
             raise ValueError("デッキ枚数が53枚ではありません")
