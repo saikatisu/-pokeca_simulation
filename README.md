@@ -11,5 +11,12 @@ I would like to know the probability of having an "Achroma's Experiment" when th
 
 <Desired Outcome>
 The desired outcome is the probability of having an "Achroma's Experiment" when there are 8 cards in hand.
+ 
+ Branch name: feature/pokeca_simulation_12345
+
+In this branch, I am developing the following functionality for validation purposes:
+Scenario: Calculating the probability of drawing a Battle VIP Pass using a starting hand of 1 Mew and 7 other cards (excluding Battle VIP Pass).
+Taking side cards into consideration.
+No deck compression or other optimizations.
   
   
